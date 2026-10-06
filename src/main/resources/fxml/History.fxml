@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.project.interactivealgorithmvisualizer.controller.HistoryController">
+
+    <!-- =========================
+         TOP
+         ========================= -->
+
+    <top>
+
+        <VBox spacing="10"
+              alignment="CENTER"
+              style="-fx-padding: 20;">
+
+            <Label text="History"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+
+            <Label text="Algorithm, Graph and Quiz History"
+                   style="-fx-font-size: 14px;"/>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- =========================
+         CENTER
+         ========================= -->
+
+    <center>
+
+        <VBox spacing="15"
+              style="-fx-padding: 15;">
+
+            <!-- =========================
+                 ALGORITHM HISTORY
+                 ========================= -->
+
+            <Label text="Algorithm History"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="historyTable"
+                       prefHeight="220">
+
+                <columns>
+
+                    <TableColumn fx:id="idColumn"
+                                 text="ID"
+                                 prefWidth="60"/>
+
+                    <TableColumn fx:id="algorithmColumn"
+                                 text="Algorithm"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="inputColumn"
+                                 text="Input Array"
+                                 prefWidth="250"/>
+
+                    <TableColumn fx:id="comparisonsColumn"
+                                 text="Comparisons"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="swapsColumn"
+                                 text="Swaps"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="dateColumn"
+                                 text="Created At"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+
+            <!-- =========================
+                 GRAPH HISTORY
+                 ========================= -->
+
+            <Label text="Graph History"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="graphHistoryTable"
+                       prefHeight="260">
+
+                <columns>
+
+                    <TableColumn fx:id="graphIdColumn"
+                                 text="ID"
+                                 prefWidth="60"/>
+
+                    <TableColumn fx:id="graphAlgorithmColumn"
+                                 text="Algorithm"
+                                 prefWidth="110"/>
+
+                    <TableColumn fx:id="graphNodesColumn"
+                                 text="Nodes"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="graphEdgesColumn"
+                                 text="Edges"
+                                 prefWidth="250"/>
+
+                    <TableColumn fx:id="graphStartNodeColumn"
+                                 text="Start Node"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="graphResultColumn"
+                                 text="Result / Visited"
+                                 prefWidth="300"/>
+
+                    <TableColumn fx:id="graphDateColumn"
+                                 text="Created At"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+
+            <!-- =========================
+                 QUIZ HISTORY
+                 ========================= -->
+
+            <Label text="Quiz History"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="quizHistoryTable"
+                       prefHeight="220">
+
+                <columns>
+
+                    <TableColumn fx:id="quizScoreColumn"
+                                 text="Score"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="quizAnsweredColumn"
+                                 text="Answered"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="quizTotalColumn"
+                                 text="Total Questions"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="quizStatusColumn"
+                                 text="Status"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="quizDateColumn"
+                                 text="Created At"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+
+    <!-- =========================
+         BOTTOM
+         ========================= -->
+
+    <bottom>
+
+        <HBox alignment="CENTER"
+              spacing="15"
+              style="-fx-padding: 15;">
+
+            <Button fx:id="refreshButton"
+                    text="Refresh"
+                    onAction="#handleRefresh"/>
+
+            <Button fx:id="backButton"
+                    text="Back"
+                    onAction="#handleBack"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>

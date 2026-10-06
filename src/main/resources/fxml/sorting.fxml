@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane
+    stylesheets="@../css/sortstyle.css"
+    xmlns="http://javafx.com/javafx/26"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.project.interactivealgorithmvisualizer.controller.SortingController">
+
+    <children>
+
+        <VBox
+            alignment="CENTER"
+            prefHeight="406.0"
+            prefWidth="600.0"
+            spacing="20.0"
+            styleClass="sorting-root">
+
+            <children>
+
+                <!-- Title -->
+                <Label
+                    prefHeight="55.0"
+                    prefWidth="268.0"
+                    styleClass="sorting-title"
+                    text="Sorting Algorithms">
+
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+
+                </Label>
+
+
+                <!-- Bubble Sort -->
+                <Button
+                    fx:id="bubbleSortButton"
+                    mnemonicParsing="false"
+                    onAction="#handleBubbleSort"
+                    styleClass="sorting-button"
+                    text="Bubble Sort">
+
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+
+                </Button>
+
+
+                <!-- Selection Sort -->
+                <Button
+                    fx:id="selectionSortButton"
+                    mnemonicParsing="false"
+                    onAction="#handleSelectionSort"
+                    styleClass="sorting-button"
+                    text="Selection Sort">
+
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+
+                </Button>
+
+
+                <!-- Insertion Sort -->
+                <Button
+                    fx:id="insertionSortButton"
+                    mnemonicParsing="false"
+                    styleClass="sorting-button"
+                    onAction="#handleInsertionSort"
+                    text="Insertion Sort">
+
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+
+                </Button>
+
+
+                <!-- Quick Sort -->
+                <Button
+                    fx:id="quickSortButton"
+                    mnemonicParsing="false"
+                    onAction="#handleQuickSort"
+                    styleClass="sorting-button"
+                    text="Quick Sort">
+
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+
+                </Button>
+
+
+                <!-- Merge Sort -->
+                <Button
+                    fx:id="mergeSortButton"
+                    mnemonicParsing="false"
+                    onAction="#handleMergeSort"
+                    styleClass="sorting-button"
+                    text="Merge Sort">
+
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+
+                </Button>
+
+
+                <!-- Back -->
+                <Button
+    mnemonicParsing="false"
+    onAction="#handleBack"
+    styleClass="Back-button"
+    text="Back">
+
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+
+                </Button>
+
+            </children>
+
+        </VBox>
+
+    </children>
+</StackPane>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        prefHeight="800.0"
+        prefWidth="1200.0"
+        stylesheets="@../css/style.css"
+        xmlns="http://javafx.com/javafx/13"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.project.interactivealgorithmvisualizer.controller.VisualizationController">
+
+    <top>
+
+        <VBox>
+
+            <fx:include source="NavigationBar.fxml"/>
+
+            <VBox
+                    alignment="CENTER"
+                    prefHeight="66.0"
+                    spacing="5">
+
+                <padding>
+                    <Insets
+                            bottom="10"
+                            left="10"
+                            right="10"
+                            top="10"/>
+                </padding>
+
+                <children>
+
+                    <Label
+                            fx:id="titleLabel"
+                            prefHeight="26.0"
+                            text="Algorithm Visualization"
+                            textFill="#c42121"/>
+
+                    <Label
+                            prefHeight="15.0"
+                            prefWidth="170.0"
+                            text="Learn - Visualize - Understand"
+                            textFill="#1e3ac7"/>
+
+                </children>
+
+            </VBox>
+
+        </VBox>
+
+    </top>
+
+
+    <center>
+
+        <VBox spacing="10">
+
+            <padding>
+                <Insets
+                        bottom="10"
+                        left="10"
+                        right="10"
+                        top="10"/>
+            </padding>
+
+            <children>
+
+                <Label text="Enter Array"/>
+
+                <TextField
+                        fx:id="arrayInput"
+                        promptText="Input Array"/>
+
+                <TextField
+                        fx:id="targetInput"
+                        promptText="Enter Target (e.g. 10)"/>
+
+                <HBox spacing="10">
+
+                    <children>
+
+                        <Button
+                                fx:id="randomButton"
+                                onAction="#handleGenerateRandom"
+                                text="Generate Random"
+                                textFill="#0a41cc"/>
+
+                        <Button
+                                fx:id="visualizeButton"
+                                onAction="#handleVisualize"
+                                text="Visualize"
+                                textFill="#762323"/>
+
+                    </children>
+
+                </HBox>
+
+                <Pane
+                        fx:id="visualizationPane"
+                        prefHeight="350.0"
+                        prefWidth="500.0"
+                        style="-fx-border-color: gray;"/>
+
+            </children>
+
+        </VBox>
+
+    </center>
+
+
+    <right>
+
+        <VBox
+                prefWidth="250.0"
+                spacing="10">
+
+            <padding>
+                <Insets
+                        bottom="10"
+                        left="10"
+                        right="10"
+                        top="10"/>
+            </padding>
+
+            <children>
+
+                <Label text="Source Code"/>
+
+                <TextArea
+                        fx:id="codeArea"
+                        editable="false"
+                        prefHeight="500.0"/>
+
+                <Label
+                        fx:id="iLabel"
+                        text="i = 0"/>
+
+                <Label
+                        fx:id="jLabel"
+                        text="j = 0"/>
+
+            </children>
+
+        </VBox>
+
+    </right>
+
+
+    <bottom>
+
+        <VBox spacing="8">
+
+            <padding>
+                <Insets
+                        bottom="10"
+                        left="10"
+                        right="10"
+                        top="10"/>
+            </padding>
+
+            <children>
+
+                <Label
+                        fx:id="explanationLabel"
+                        text="Explanation will appear here..."/>
+
+                <HBox spacing="10">
+
+                    <children>
+
+                        <Button
+                                fx:id="startButton"
+                                onAction="#handleStart"
+                                text="Start"/>
+
+                        <Button
+                                fx:id="pauseButton"
+                                onAction="#handlePause"
+                                text="Pause"/>
+
+                        <Button
+                                fx:id="stepButton"
+                                onAction="#handleStep"
+                                text="Step"/>
+
+                        <Button
+                                fx:id="resetButton"
+                                onAction="#handleReset"
+                                text="Reset"/>
+
+                    </children>
+
+                </HBox>
+
+                <HBox
+                        alignment="CENTER_LEFT"
+                        spacing="10">
+
+                    <children>
+
+                        <Label text="Speed:"/>
+
+                        <Slider
+                                fx:id="speedSlider"
+                                max="10.0"
+                                min="1.0"
+                                value="5.0"/>
+
+                    </children>
+
+                </HBox>
+
+                <HBox spacing="30">
+
+                    <children>
+
+                        <Label
+                                fx:id="timeComplexityLabel"
+                                text="Time Complexity: O(n²)"/>
+
+                        <Label
+                                fx:id="spaceComplexityLabel"
+                                text="Space Complexity: O(1)"/>
+
+                        <Label
+                                fx:id="comparisonLabel"
+                                text="Total Comparisons: 0"/>
+
+                        <Label
+                                fx:id="swapLabel"
+                                text="Total Swaps: 0"/>
+
+                    </children>
+
+                </HBox>
+
+            </children>
+
+        </VBox>
+
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0"
+            prefWidth="1100.0"
+            minWidth="800.0"
+            minHeight="600.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.project.interactivealgorithmvisualizer.controller.GraphController">
+
+    <!-- =========================
+         TOP
+         ========================= -->
+
+    <top>
+
+        <VBox spacing="8.0">
+
+            <padding>
+                <Insets top="20.0"
+                        right="25.0"
+                        bottom="15.0"
+                        left="25.0"/>
+            </padding>
+
+            <Label text="GRAPH ALGORITHM VISUALIZATION">
+
+                <font>
+                    <Font size="26.0"/>
+                </font>
+
+            </Label>
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="15.0">
+
+                <Label text="Algorithm:"/>
+
+                <ComboBox fx:id="algorithmComboBox"
+                          prefWidth="180.0"
+                          minWidth="130.0"/>
+
+                <Label text="Start Node:"/>
+
+                <TextField fx:id="startNodeField"
+                           prefWidth="100.0"
+                           minWidth="70.0"
+                           promptText="A"/>
+
+                <Button fx:id="visualizeButton"
+                        mnemonicParsing="false"
+                        onAction="#handleVisualize"
+                        text="VISUALIZE"/>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- =========================
+         CENTER
+         ========================= -->
+
+    <center>
+
+        <HBox spacing="10.0">
+
+            <padding>
+                <Insets top="10.0"
+                        right="10.0"
+                        bottom="10.0"
+                        left="25.0"/>
+            </padding>
+
+
+            <!-- GRAPH AREA -->
+
+            <VBox spacing="10.0"
+                  HBox.hgrow="ALWAYS">
+
+                <Label text="Graph">
+
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+
+                </Label>
+
+
+                <!--
+                    ScrollPane makes graph accessible
+                    even when window is small.
+                -->
+
+                <ScrollPane fitToWidth="true"
+                            fitToHeight="true"
+                            hbarPolicy="AS_NEEDED"
+                            vbarPolicy="AS_NEEDED"
+                            VBox.vgrow="ALWAYS"
+                            style="-fx-background-color: transparent;">
+
+                    <content>
+
+                        <Pane fx:id="graphPane"
+                              minWidth="700.0"
+                              minHeight="400.0"
+                              prefWidth="750.0"
+                              prefHeight="430.0"
+                              style="-fx-background-color: #f8f9fa;
+                                     -fx-border-color: #cccccc;
+                                     -fx-border-width: 1;">
+
+                            <!-- Example edges -->
+
+                            <Line startX="150.0"
+                                  startY="100.0"
+                                  endX="300.0"
+                                  endY="180.0"/>
+
+                            <Line startX="150.0"
+                                  startY="100.0"
+                                  endX="300.0"
+                                  endY="50.0"/>
+
+                            <Line startX="300.0"
+                                  startY="180.0"
+                                  endX="450.0"
+                                  endY="100.0"/>
+
+
+                            <!-- Example nodes -->
+
+                            <Circle centerX="150.0"
+                                    centerY="100.0"
+                                    radius="25.0"/>
+
+                            <Circle centerX="300.0"
+                                    centerY="180.0"
+                                    radius="25.0"/>
+
+                            <Circle centerX="300.0"
+                                    centerY="50.0"
+                                    radius="25.0"/>
+
+                            <Circle centerX="450.0"
+                                    centerY="100.0"
+                                    radius="25.0"/>
+
+                        </Pane>
+
+                    </content>
+
+                </ScrollPane>
+
+            </VBox>
+
+
+            <!-- =========================
+                 RIGHT INPUT PANEL
+                 ========================= -->
+
+            <ScrollPane fitToWidth="true"
+                        prefWidth="300.0"
+                        minWidth="260.0"
+                        maxWidth="320.0"
+                        hbarPolicy="NEVER"
+                        vbarPolicy="AS_NEEDED"
+                        style="-fx-background-color: transparent;">
+
+                <content>
+
+                    <VBox spacing="10.0"
+                          prefWidth="280.0">
+
+                        <padding>
+                            <Insets top="10.0"
+                                    right="15.0"
+                                    bottom="20.0"
+                                    left="15.0"/>
+                        </padding>
+
+
+                        <Label text="Graph Input">
+
+                            <font>
+                                <Font size="20.0"/>
+                            </font>
+
+                        </Label>
+
+
+                        <Label text="Nodes"/>
+
+                        <TextField fx:id="nodesField"
+                                   promptText="A,B,C,D,E"/>
+
+
+                        <Label text="Edges"/>
+
+                        <TextArea fx:id="edgesArea"
+                                  prefHeight="80.0"
+                                  promptText="A-B&#10;A-C&#10;B-D&#10;C-D"/>
+
+
+                        <Label text="Status"/>
+
+                        <Label fx:id="statusLabel"
+                               text="Graph is ready."
+                               wrapText="true"/>
+
+
+                        <Label text="Current Node"/>
+
+                        <Label fx:id="currentNodeLabel"
+                               text="None"/>
+
+
+                        <Label text="Visited Nodes"/>
+
+                        <TextArea fx:id="visitedArea"
+                                  editable="false"
+                                  wrapText="true"
+                                  prefHeight="60.0"/>
+
+
+                        <Label text="Distances"/>
+
+                        <TextArea fx:id="distanceArea"
+                                  editable="false"
+                                  wrapText="true"
+                                  prefHeight="80.0"/>
+
+
+                        <Label text="Time Complexity"/>
+
+                        <Label fx:id="timeComplexityLabel"
+                               text="O(V + E)"
+                               wrapText="true"/>
+
+
+                        <Label text="Space Complexity"/>
+
+                        <Label fx:id="spaceComplexityLabel"
+                               text="O(V)"
+                               wrapText="true"/>
+
+                    </VBox>
+
+                </content>
+
+            </ScrollPane>
+
+        </HBox>
+
+    </center>
+
+
+    <!-- =========================
+         BOTTOM BUTTONS
+         ========================= -->
+
+    <bottom>
+
+        <HBox alignment="CENTER"
+              spacing="15.0">
+
+            <padding>
+                <Insets top="15.0"
+                        right="20.0"
+                        bottom="20.0"
+                        left="20.0"/>
+            </padding>
+
+
+            <Button fx:id="startButton"
+                    mnemonicParsing="false"
+                    onAction="#handleStart"
+                    prefWidth="100.0"
+                    text="START"/>
+
+
+            <Button fx:id="pauseButton"
+                    mnemonicParsing="false"
+                    onAction="#handlePause"
+                    prefWidth="100.0"
+                    text="PAUSE"/>
+
+
+            <Button fx:id="stepButton"
+                    mnemonicParsing="false"
+                    onAction="#handleStep"
+                    prefWidth="100.0"
+                    text="STEP"/>
+
+
+            <Button fx:id="resetButton"
+                    mnemonicParsing="false"
+                    onAction="#handleReset"
+                    prefWidth="100.0"
+                    text="RESET"/>
+
+
+            <Button fx:id="backButton"
+                    mnemonicParsing="false"
+                    onAction="#handleBack"
+                    prefWidth="100.0"
+                    text="BACK"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>

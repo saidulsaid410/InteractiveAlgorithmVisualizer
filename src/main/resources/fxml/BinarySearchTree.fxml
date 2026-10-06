@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ComboBox?>
+
+<BorderPane prefWidth="1100.0"
+            prefHeight="700.0"
+            minWidth="800.0"
+            minHeight="600.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.project.interactivealgorithmvisualizer.controller.BinarySearchTreeController">
+
+    <!-- Top -->
+    <top>
+        <VBox spacing="10.0">
+
+            <padding>
+                <Insets top="20.0"
+                        right="25.0"
+                        bottom="15.0"
+                        left="25.0"/>
+            </padding>
+
+            <Label text="BINARY SEARCH TREE">
+                <font>
+                    <Font size="26.0"/>
+                </font>
+            </Label>
+
+            <HBox spacing="10.0"
+                  alignment="CENTER_LEFT">
+
+                <Label text="Value:"/>
+
+                <TextField fx:id="valueField"
+                           prefWidth="120.0"
+                           promptText="Enter value"/>
+
+                <Button fx:id="insertButton"
+                        text="INSERT"
+                        onAction="#handleInsert"/>
+
+                <Button fx:id="searchButton"
+                        text="SEARCH"
+                        onAction="#handleSearch"/>
+
+                <Button fx:id="deleteButton"
+                        text="DELETE"
+                        onAction="#handleDelete"/>
+                <HBox spacing="10.0"
+      alignment="CENTER_LEFT">
+
+    <Label text="Traversal:"/>
+
+    <ComboBox fx:id="traversalComboBox"
+              prefWidth="150.0"/>
+    
+    <Button text="TRAVERSE"
+        onAction="#handleTraverse"/>
+
+</HBox>
+
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <!-- Center -->
+    <center>
+        <VBox spacing="10.0">
+
+            <padding>
+                <Insets top="10.0"
+                        right="25.0"
+                        bottom="10.0"
+                        left="25.0"/>
+            </padding>
+
+            <Label text="Binary Search Tree">
+                <font>
+                    <Font size="20.0"/>
+                </font>
+            </Label>
+
+            <ScrollPane fitToWidth="true"
+                        fitToHeight="true"
+                        hbarPolicy="AS_NEEDED"
+                        vbarPolicy="AS_NEEDED"
+                        VBox.vgrow="ALWAYS">
+
+                <content>
+
+                    <Pane fx:id="treePane"
+                          minWidth="750.0"
+                          minHeight="450.0"
+                          prefWidth="900.0"
+                          prefHeight="500.0"
+                          style="-fx-background-color: #f8f9fa;
+                                 -fx-border-color: #cccccc;
+                                 -fx-border-width: 1;"/>
+
+                </content>
+
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+    <!-- Right -->
+    <right>
+        <ScrollPane fitToWidth="true"
+                    prefWidth="260.0"
+                    minWidth="230.0"
+                    maxWidth="280.0"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED">
+
+            <content>
+
+                <VBox spacing="12.0">
+
+                    <padding>
+                        <Insets top="15.0"
+                                right="15.0"
+                                bottom="20.0"
+                                left="15.0"/>
+                    </padding>
+
+                    <Label text="Tree Information">
+                        <font>
+                            <Font size="20.0"/>
+                        </font>
+                    </Label>
+
+                    <Label text="Status"/>
+
+                    <Label fx:id="statusLabel"
+                           text="Tree is ready."
+                           wrapText="true"/>
+
+                    <Label text="Traversal"/>
+
+                    <Label fx:id="traversalLabel"
+                           text=""
+                           wrapText="true"/>
+
+                    <Label text="Inorder"/>
+
+                    <Label fx:id="inorderLabel"
+                           text=""
+                           wrapText="true"/>
+
+                    <Label text="Preorder"/>
+
+                    <Label fx:id="preorderLabel"
+                           text=""
+                           wrapText="true"/>
+
+                    <Label text="Postorder"/>
+
+                    <Label fx:id="postorderLabel"
+                           text=""
+                           wrapText="true"/>
+
+                </VBox>
+
+            </content>
+
+        </ScrollPane>
+    </right>
+
+    <!-- Bottom -->
+    <bottom>
+        <HBox alignment="CENTER"
+              spacing="15.0">
+
+            <padding>
+                <Insets top="15.0"
+                        right="20.0"
+                        bottom="20.0"
+                        left="20.0"/>
+            </padding>
+
+            <Button fx:id="stepButton"
+                    text="STEP"
+                    prefWidth="100.0"
+                    onAction="#handleStep"/>
+
+            <Button fx:id="resetButton"
+                    text="RESET"
+                    prefWidth="100.0"
+                    onAction="#handleReset"/>
+
+            <Button fx:id="backButton"
+                    text="BACK"
+                    prefWidth="100.0"
+                    onAction="#handleBack"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -37,13 +37,14 @@ private void handleBST(ActionEvent event) {
                 )
         );
 
-        Stage stage =
-                (Stage) ((Node) event.getSource())
-                        .getScene()
-                        .getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            boolean wasMaximized = stage.isMaximized();
+            double w = stage.getScene().getWidth();
+            double h = stage.getScene().getHeight();
 
-        stage.setScene(new Scene(root));
-        stage.show();
+            stage.setScene(new Scene(root, w, h));
+            stage.setMaximized(wasMaximized);
+                    stage.show();
 
     } catch (IOException e) {
 
@@ -58,17 +59,17 @@ private void handleBST(ActionEvent event) {
 
     private void openVisualization(ActionEvent event, String structureName) {
         try {
-            // 🌟 ১. নতুন datastructure_visualiser.fxml ফাইল লোড করা
+            //  datastructure_visualiser.fxml
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/fxml/datastructure_visualizer.fxml")
             );
             Parent root = loader.load();
 
-            // 🌟 ২. DataStructureVisualizerController ক্লাসের অবজেক্ট আনা
+            // DataStructureVisualizerController 
             DataStructureVisualizerController controller = loader.getController();
 
             if (controller != null) {
-                // 🌟 ৩. setStructure মেথডের মাধ্যমে ডাটা স্ট্রাকচারের নাম পাস করা
+                // setStructure 
                 controller.setStructure(structureName);
             }
 
@@ -89,7 +90,12 @@ private void handleBST(ActionEvent event) {
                     getClass().getResource("/fxml/Dashboard.fxml") 
             );
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            boolean wasMaximized = stage.isMaximized();
+            double w = stage.getScene().getWidth();
+            double h = stage.getScene().getHeight();
+
+            stage.setScene(new Scene(root, w, h));
+            stage.setMaximized(wasMaximized);
             stage.show();
 
         } catch (IOException e) {

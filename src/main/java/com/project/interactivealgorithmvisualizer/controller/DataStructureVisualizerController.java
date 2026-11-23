@@ -920,15 +920,13 @@ if (userId != -1) {
                         FXMLLoader.load(resource);
 
 
-                Stage stage =
-                        (Stage) ((Node) event.getSource())
-                                .getScene()
-                                .getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+        double width = stage.getScene().getWidth();
+        double height = stage.getScene().getHeight();
 
-                stage.setScene(
-                        new Scene(root)
-                );
+        stage.setScene(new Scene(root, width, height));
+        stage.show();
 
                 stage.show();
 

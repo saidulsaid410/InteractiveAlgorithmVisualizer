@@ -884,7 +884,7 @@ private void performTraversalStep(String traversal) {
 
         SceneSwitcher.switchScene(
                 event,
-                "data-structures.fxml"
+                "datastructures.fxml"
         );
     }
 }
